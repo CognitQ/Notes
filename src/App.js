@@ -1,8 +1,8 @@
-import './App.css';
 import QpNotes from './Components/QpNotes';
 // import AdminLogin from './Components/AdminLogin';
 // import Classes from './Components/Classes';
 // import Subject from './Components/Subject';
+import AdminLogin from "./Components/AdminLogin";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       {/* <Classes /> */}
       {/* <Subject/> */}
       <QpNotes/>
+      <AdminLogin />
     </div>
   );
 }
