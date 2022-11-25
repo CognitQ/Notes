@@ -1,10 +1,9 @@
-import './App.css';
-import AdminLogin from './Components/AdminLogin';
+import AdminLogin from "./Components/AdminLogin";
 
 function App() {
   return (
     <div className="App">
-      <AdminLogin/>
+      <AdminLogin />
     </div>
   );
 }
