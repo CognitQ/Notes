@@ -1,28 +1,33 @@
 import React, { useState } from 'react'
 import Button from './Button'
 import "./AdminLogin.css"
+import {  useNavigate } from "react-router-dom";
+
 
 const AdminLogin = () => {
+
+  const navigate = useNavigate();
+  
+  
   const username="admin"
   const password= "123"
-
+  
   const [userValue, setUserValue] = useState("")
   const [passValue, setPassValue] = useState("")
   const [error, setError] = useState(false)
-
-
+  
+  
   const handleSubmit = (event) => {
     event.preventDefault()
     if(userValue === username && passValue===password) {
-        setError(false)
-        alert("Login successful")
+        navigate("/AdminDashbord");
     }
     else{
         setError(true)
     }
 }
 
-    return (
+return (
     <div>
     
     <div className="container">
