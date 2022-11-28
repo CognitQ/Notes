@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import Button from './Button'
 import "./AdminLogin.css"
-// import {  useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 
 const AdminLogin = () => {
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
   
   
   const username="admin"
@@ -20,8 +20,7 @@ const AdminLogin = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     if(userValue === username && passValue===password) {
-        alert("Login successful")
-        // navigate("/AdminDashbord");
+        navigate("/AdminDashbord");
     }
     else{
         setError(true)
