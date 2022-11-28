@@ -1,0 +1,2 @@
+for running NotesData File use Cmd 
+"json-server --watch db.json"
