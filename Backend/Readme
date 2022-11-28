@@ -1,2 +1,6 @@
+install npm which will create node_module file
+download json server globally using cmd
+$ sudo npm install -g json-server
+
 for running NotesData File use Cmd 
-"json-server --watch db.json"
+"json-server --watch NotesData.json"
