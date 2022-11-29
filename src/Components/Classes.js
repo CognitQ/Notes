@@ -12,7 +12,12 @@ const Classes = () => {
         <h2 className="header">Select Class:</h2>
         <div className="row">
           {a.map((i) => (
-            <Card className="col-lg-2" stdNum={i.CName} std="Standard" />
+            <Card
+              key={i.Cid}
+              className="col-lg-2"
+              stdNum={i.CName}
+              std="Standard"
+            />
           ))}
         </div>
       </div>

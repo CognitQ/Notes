@@ -5,8 +5,8 @@ import AdminLogin from "./Components/AdminLogin";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminDashbord from "./Components/AdminDashbord";
 import DataState from "./Context/DataState";
-function App() {
 
+function App() {
   return (
     <div className="App">
       <DataState>
@@ -14,9 +14,9 @@ function App() {
           <Routes>
             <Route path="/login" element={<AdminLogin />} />
             <Route path="/" element={<Classes />} />
-            <Route path="/Subject" element={<Subject />} />
-            <Route path="/Subject" element={<QpNotes />} />
+            <Route path="/:class/:subject" element={<QpNotes />} />
             <Route path="/AdminDashbord" element={<AdminDashbord />} />
+            <Route path="/:classes" element={<Subject />} />
           </Routes>
         </BrowserRouter>
       </DataState>
