@@ -1,25 +1,23 @@
-import React from 'react'
-import Card from './Card'
+import React, { useContext } from "react";
+import Card from "./Card";
 import "./Class.css";
-// import {  useNavigate } from "react-router-dom";
-
-const division=[1,2,3,4,5,6,7,8,9,10]
+import DataContext from "../Context/DataContext";
 
 const Classes = () => {
-// const navigate= useNavigate();
-
+  const a = useContext(DataContext);
+  console.log(a);
   return (
     <div>
       <div className="container">
-        <h2 className='header'>Select Class:</h2>
+        <h2 className="header">Select Class:</h2>
         <div className="row">
-
-        {division.map((d)=>
-        <Card className="col-lg-2" stdNum={d} std="Standard"/>)}
+          {a.map((i) => (
+            <Card className="col-lg-2" stdNum={i.CName} std="Standard" />
+          ))}
+        </div>
       </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Classes
+export default Classes;
