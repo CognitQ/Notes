@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<AdminLogin />} />
             <Route path="/" element={<Classes />} />
-            <Route path="/:class/:subject" element={<QpNotes />} />
+            <Route path="/:classes/:subject" element={<QpNotes />} />
             <Route path="/AdminDashbord" element={<AdminDashbord />} />
             <Route path="/:classes" element={<Subject />} />
           </Routes>
