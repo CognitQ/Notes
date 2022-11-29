@@ -5,6 +5,7 @@ import DataContext from "../Context/DataContext";
 
 const Classes = () => {
   const a = useContext(DataContext);
+  console.log(a);
   return (
     <div>
       <div className="container">
@@ -17,7 +18,6 @@ const Classes = () => {
       </div>
     </div>
   );
-  console.log(a);
 };
 
 export default Classes;

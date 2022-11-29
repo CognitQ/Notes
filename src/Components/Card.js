@@ -1,15 +1,23 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import "./Card.css"
 
 
 
-const Card = (props) => {
+const Card = ({stdNum, std}) => {
+    const navigate = useNavigate();
+
+
     return (
-        <div className="class">
+        <div className="class" onClick={()=>
+            navigate(`/class/${stdNum}`)
+            // navigate("/class/Subject")
+        }
+        >
             <h2 className="cls-txt">
-                {props.stdNum} 
+                {stdNum} 
             </h2>
-                {props.std}
+                {std}
         </div>
     )
 }
