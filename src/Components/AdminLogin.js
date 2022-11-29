@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from './Button'
 import "./AdminLogin.css"
+import {  useNavigate } from "react-router-dom";
+
 
 const AdminLogin = () => {
-  return (
+
+  const navigate = useNavigate();
+  
+  
+  const username="admin"
+  const password= "123"
+  
+  const [userValue, setUserValue] = useState("")
+  const [passValue, setPassValue] = useState("")
+  const [error, setError] = useState(false)
+  
+  
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    if(userValue === username && passValue===password) {
+        navigate("/AdminDashbord");
+    }
+    else{
+        setError(true)
+    }
+}
+
+return (
     <div>
     
     <div className="container">
@@ -16,20 +40,20 @@ const AdminLogin = () => {
 
                 <div className="col-lg-10 login-form offset-1">
                     <div className="col-lg-12 login-form">
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label className="form-control-label">USERNAME</label>
-                                <input type="text" className="form-control"/>
+                                <input type="text" className="form-control" onChange={(e)=>setUserValue(e.target.value)}/>
                             </div>
                             <div className="form-group">
                                 <label className="form-control-label">PASSWORD</label>
-                                <input type="password" className="form-control" />
+                                <input type="password" className="form-control"onChange={(e)=>setPassValue(e.target.value)} />
                             </div>
 
                             <div className="col-lg-12 loginbttm">
-                                <div className="col-lg-6 login-btm login-text">
-                                    {/* <!-- Error Message --> */}
-                                </div>
+                                {error? <div className="col-lg-6 login-btm login-text">
+                                    <h3 className='text-danger'>wrong password or Username</h3>
+                                </div>: null}
                                 <div className="col-lg-12 login-btm login-button">
                                     <Button type="submit" className="btn btn-outline-primary">LOGIN</Button>
                                 </div>
@@ -37,7 +61,7 @@ const AdminLogin = () => {
                         </form>
                     </div>
                 </div>
-                <div classNameName="col-lg-3 col-md-2"></div>
+                <div className="col-lg-3 col-md-2"></div>
             </div>
         </div>
 
