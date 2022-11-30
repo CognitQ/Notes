@@ -1,35 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SideBar.css";
-import Button from "./Button";
-import Axios from "axios";
-import { v4 as uuid } from "uuid";
+import AddClass from "./AddClass";
+import AddSubject from "./AddSubject";
+import AddNotes from "./AddNotes";
 
 const SideBar = () => {
-  const url = "http://localhost:3000/Classes";
-
-  const unique_id = uuid();
-
-  const [stdClass, setStdClass] = useState("");
-  const [subClass, setSubClass] = useState("");
-  const [sub, setSub] = useState("");
-
-  const handleClassSubmit = (e) => {
-    e.preventDefault();
-    Axios.post(url, { Cid: "50", CName: "stdClass" }).then((res) => {
-      console.log(res.stdClass);
-    });
-  };
-
-  const handleSubjectSubmit = (e) => {
-    e.preventDefault();
-    console.log(sub);
-    console.log(subClass);
-  };
-
-  const handleNotesSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="container mt-5">
       <div className="accordion" id="accordionExample">
@@ -53,14 +28,7 @@ const SideBar = () => {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <form onSubmit={handleClassSubmit}>
-                <input
-                  type="text"
-                  // name="classname"
-                  onChange={(e) => setStdClass(e.target.value)}
-                />
-                <Button type="submit">Add Class</Button>
-              </form>
+              <AddClass />
             </div>
           </div>
         </div>
@@ -84,18 +52,7 @@ const SideBar = () => {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <form onSubmit={handleSubjectSubmit}>
-                <input
-                  type="text"
-                  name="subName"
-                  onChange={(e) => setSub(e.target.value)}
-                />
-                <select onChange={(e) => setSubClass(e.target.value)}>
-                  <option value="1">1st</option>
-                  <option value="2">2nd</option>
-                </select>
-                <Button type="submit">Add Subject</Button>
-              </form>
+              <AddSubject />
             </div>
           </div>
         </div>
@@ -119,18 +76,7 @@ const SideBar = () => {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <form onSubmit={handleNotesSubmit}>
-                <input type="text" />
-                <select onChange={(e) => setSubClass(e.target.value)}>
-                  <option value="1">1st</option>
-                  <option value="2">2nd</option>
-                </select>
-                <select onChange={(e) => setSubClass(e.target.value)}>
-                  <option value="1">1st</option>
-                  <option value="2">2nd</option>
-                </select>
-                <Button type="submit">Add Class</Button>
-              </form>
+              <AddNotes />
             </div>
           </div>
         </div>
