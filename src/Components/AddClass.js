@@ -3,10 +3,13 @@ import React, { useState, useContext } from "react";
 import "./SideBar.css";
 import Button from "./Button";
 import { v4 as uuid } from "uuid";
+// import Axios from "axios";
 
 const AddClass = () => {
   const d = useContext(DataContext);
   const unique_id = uuid();
+
+  // const url = "http://localhost:3000/Classes";
 
   const [stdClass, setStdClass] = useState("");
   const classData = {
@@ -17,6 +20,7 @@ const AddClass = () => {
   const handleClassSubmit = (e) => {
     e.preventDefault();
     d.push(classData);
+    // Axios.post(url, { classData });
     console.log(d);
   };
 
