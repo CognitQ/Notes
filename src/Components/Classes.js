@@ -4,7 +4,8 @@ import "./Class.css";
 import DataContext from "../Context/DataContext";
 
 const Classes = () => {
-  const a = useContext(DataContext);
+  const { data } = useContext(DataContext);
+  const a = data;
   console.log(a);
   return (
     <div>

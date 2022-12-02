@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import Cards from "./Cards";
 
 const Subject = () => {
-  const d = useContext(DataContext);
+  const { data } = useContext(DataContext);
+  const d = data;
   const { classes } = useParams();
   return (
     <div>

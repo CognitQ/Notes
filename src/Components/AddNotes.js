@@ -5,14 +5,31 @@ import Button from "./Button";
 import { v4 as uuid } from "uuid";
 
 const AddNotes = () => {
-  const d = useContext(DataContext);
+  const { data, setData } = useContext(DataContext);
+  const d = data;
   const unique_id = uuid();
 
   const [note, setNote] = useState();
   const [notesub, setNoteSub] = useState();
   const [noteClass, setNoteClass] = useState();
 
-  const handleNotesSubmit = () => {};
+  const noteData = {
+    Nid: unique_id,
+    Nname: note,
+  };
+
+  const handleNotesSubmit = (e) => {
+    e.preventDefault();
+    // d.filter((i) => i.CName === noteClass)
+    //   .filter((j) => j.Subject.filter((l) => l.SName === notesub))
+    //   .filter((k) => k.Notes.push(noteData));
+    console.log(
+      d
+        .filter((i) => i.CName === noteClass)
+        .filter((j) => j.Subject.filter((l) => l.SName === notesub))
+    );
+    setData(d);
+  };
 
   return (
     <form onSubmit={handleNotesSubmit}>

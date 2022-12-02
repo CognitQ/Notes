@@ -5,7 +5,9 @@ import Button from "./Button";
 import { v4 as uuid } from "uuid";
 
 const AddSubject = () => {
-  const d = useContext(DataContext);
+  const { data, setData } = useContext(DataContext);
+  const d = data;
+
   const unique_id = uuid();
 
   const [subClass, setSubClass] = useState();
@@ -14,6 +16,7 @@ const AddSubject = () => {
   const subData = {
     Sid: unique_id,
     SName: sub,
+    Notes: [],
   };
 
   const handleSubjectSubmit = (e) => {
@@ -21,7 +24,8 @@ const AddSubject = () => {
     d.filter((i) => i.CName === subClass).filter((j) =>
       j.Subject.push(subData)
     );
-    console.log(d);
+    const f = [...d];
+    setData(f);
   };
   return (
     <form onSubmit={handleSubjectSubmit}>

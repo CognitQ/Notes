@@ -5,7 +5,8 @@ import NoteCard from "./NoteCard";
 import "./Card.css";
 
 const QpNotes = () => {
-  const d = useContext(DataContext);
+  const { data } = useContext(DataContext);
+  const d = data;
   const { classes, subject } = useParams();
   return (
     <div>

@@ -6,29 +6,44 @@ import { v4 as uuid } from "uuid";
 // import Axios from "axios";
 
 const AddClass = () => {
-  const d = useContext(DataContext);
-  const unique_id = uuid();
+  const { data, setData } = useContext(DataContext);
 
+  const unique_id = uuid();
+  const d = data;
   // const url = "http://localhost:3000/Classes";
 
   const [stdClass, setStdClass] = useState("");
   const classData = {
     Cid: unique_id,
     CName: stdClass,
+    Subject: [],
   };
 
   const handleClassSubmit = (e) => {
     e.preventDefault();
     d.push(classData);
+    const f = [...d];
+    setData(f);
+
     // Axios.post(url, { classData });
-    console.log(d);
   };
 
   return (
-    <form onSubmit={handleClassSubmit}>
-      <input type="text" onChange={(e) => setStdClass(e.target.value)} />
-      <Button type="submit">Add Class</Button>
-    </form>
+    <>
+      <form onSubmit={handleClassSubmit}>
+        <input type="text" onChange={(e) => setStdClass(e.target.value)} />
+        <Button type="submit">Add Class</Button>
+      </form>
+
+      {/* <div className="container">
+        {d.map((i) => (
+          <div key={i.Cid} className="border border-dark">
+            {" "}
+            {i.CName}
+          </div>
+        ))}
+      </div> */}
+    </>
   );
 };
 
