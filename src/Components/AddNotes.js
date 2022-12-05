@@ -18,17 +18,27 @@ const AddNotes = () => {
     Nname: note,
   };
 
+  const a = d.filter((i) => i.CName === noteClass);
+
+  // const b = a.filter((i) => i.Subject.Sid === notesub);
+
+  const c = d.filter(
+    (i) => i.CName === noteClass && i.Subject.filter((j) => j.SName === notesub)
+  );
+
   const handleNotesSubmit = (e) => {
     e.preventDefault();
     // d.filter((i) => i.CName === noteClass)
     //   .filter((j) => j.Subject.filter((l) => l.SName === notesub))
     //   .filter((k) => k.Notes.push(noteData));
-    console.log(
-      d
-        .filter((i) => i.CName === noteClass)
-        .filter((j) => j.Subject.filter((l) => l.SName === notesub))
-    );
-    setData(d);
+    d.filter(
+      (i) =>
+        i.CName === noteClass && i.Subject.filter((j) => j.SName === notesub)
+    ).filter((k) => k.Notes.push(noteData));
+    console.log(c);
+
+    // const f = [...d];
+    // setData(f);
   };
 
   return (

@@ -75,7 +75,9 @@ const SideBar = () => {
             aria-labelledby="headingThree"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body">{/* <AddNotes /> */}</div>
+            <div className="accordion-body">
+              <AddNotes />
+            </div>
           </div>
         </div>
       </div>

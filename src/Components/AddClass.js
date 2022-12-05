@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import "./SideBar.css";
 import Button from "./Button";
 import { v4 as uuid } from "uuid";
+// import ListData from "./ListData";
 // import Axios from "axios";
 
 const AddClass = () => {
@@ -35,6 +36,7 @@ const AddClass = () => {
         <Button type="submit">Add Class</Button>
       </form>
 
+      {/* <ListData data={d} /> */}
       {/* <div className="container">
         {d.map((i) => (
           <div key={i.Cid} className="border border-dark">
